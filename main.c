@@ -1,13 +1,30 @@
 #include "includes/ft_printf.h"
 
-int	main(int argc, char *argv[])
+int	main(void)
 {
-	int	a;
+	char	*a;
+	char	*b;
+	char	*c;
+	char	*d;
 
-	a = 1000;
-	(void)argc;
-	(void)argv;
-	ft_printf("Hello\n");
-	printf("%2d", a);
+	a = "Hello";
+	b = "world";
+	c = "world";
+	d = "world";
+	/* ft_printf("Hello\t"); */
+	/* printf("Hello\n"); */
+	ft_printf("%sworld\t", a);
+	printf("%sworld\n", a);
+	ft_printf("%s %s\t", a, b);
+	printf("%s %s\n", a, b);
+	ft_printf("%s %s %s %s\t", a, b, c, d);
+	printf("%s %s %s %s\n", a, b, c, d);
+	ft_printf("%s%s%s%s\t", a, b, c, d);
+	printf("%s%s%s%s\n", a, b, c, d);
+	printf("\n\n");
+	ft_printf("aabab%%aaabb\t");
+	printf("aabab%%aaabb\n");
+	ft_printf("%-%a\t");
+	printf("%-%\n");
 	return (0);
 }

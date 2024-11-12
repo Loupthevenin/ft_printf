@@ -1,7 +1,20 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: ltheveni <ltheveni@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2024/11/12 18:30:50 by ltheveni          #+#    #+#              #
+#    Updated: 2024/11/12 22:06:08 by ltheveni         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 NAME = libftprintf.a
 SRCS_DIR = src/
 OBJ_DIR = obj/
-SRC_FILES = ft_printf.c
+SRC_FILES = ft_printf.c\
+			ft_utils_printf.c\
 
 LIBFT_DIR = libft
 LIBFT = $(LIBFT_DIR)/libft.a

@@ -1,25 +1,49 @@
 #include "../includes/ft_printf.h"
 
+void	ft_put_var(char c, va_list *args)
+{
+	if (c == 'c')
+		ft_putchar_fd((char)va_arg(*args, int), 1);
+	if (c == 's')
+		ft_putstr_fd(va_arg(*args, char *), 1);
+	if (c == 'p')
+	{
+	}
+	if (c == 'd')
+		ft_putnbr_fd(va_arg(*args, int), 1);
+	if (c == 'i')
+	{
+	}
+	if (c == 'u')
+	{
+	}
+	if (c == 'x')
+	{
+	}
+	if (c == 'X')
+	{
+	}
+	if (c == '%')
+		ft_putchar_fd('%', 1);
+}
+
 int	ft_printf(const char *s, ...)
 {
-	va_list	p;
+	va_list	args;
 
-	// commencer par un count args qui permet d'avoir l'info direct
+	va_start(args, s);
 	while (*s)
 	{
 		if (*s != '%')
 			ft_putchar_fd(*s, 1);
-		else
+		if (*s == '%')
 		{
-			s++;
-			if (*s == 's')
-			{
-				va_start(p, s);
-				ft_putstr_fd(va_arg(p, char *), 1);
-				va_end(p);
-			}
+			while (*s && !ft_isalnum(*s))
+				s++;
+			ft_put_var(*s, &args);
 		}
 		s++;
 	}
-	return (1);
+	va_end(args);
+	return (0);
 }
