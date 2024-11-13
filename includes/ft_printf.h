@@ -6,7 +6,7 @@
 /*   By: ltheveni <ltheveni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 10:59:13 by ltheveni          #+#    #+#             */
-/*   Updated: 2024/11/12 22:05:22 by ltheveni         ###   ########.fr       */
+/*   Updated: 2024/11/13 15:07:49 by ltheveni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@
 # include <stdio.h>
 # include <unistd.h>
 
-int		ft_len_arr(char **s);
-void	free_split(char **arr);
-int		ft_printf(const char *s, ...);
+int	ft_putchar(char const c);
+int	ft_putstr(char const *s);
+int	ft_printf(const char *s, ...);
 
 #endif

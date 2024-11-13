@@ -1,11 +1,26 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ltheveni <ltheveni@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/11/13 14:46:16 by ltheveni          #+#    #+#             */
+/*   Updated: 2024/11/13 15:15:11 by ltheveni         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/ft_printf.h"
 
-void	ft_put_var(char c, va_list *args)
+int	ft_put_var(char c, va_list *args)
 {
+	int	i;
+
+	i = 0;
 	if (c == 'c')
-		ft_putchar_fd((char)va_arg(*args, int), 1);
+		i = ft_putchar((char)va_arg(*args, int));
 	if (c == 's')
-		ft_putstr_fd(va_arg(*args, char *), 1);
+		i = ft_putstr(va_arg(*args, char *));
 	if (c == 'p')
 	{
 	}
@@ -24,26 +39,32 @@ void	ft_put_var(char c, va_list *args)
 	{
 	}
 	if (c == '%')
-		ft_putchar_fd('%', 1);
+		i = ft_putchar('%');
+	return (i);
 }
 
 int	ft_printf(const char *s, ...)
 {
+	int		i;
+	int		count;
 	va_list	args;
 
 	va_start(args, s);
-	while (*s)
+	i = 0;
+	count = 0;
+	while (s[i] != '\0')
 	{
-		if (*s != '%')
-			ft_putchar_fd(*s, 1);
-		if (*s == '%')
+		if (s[i] == '%')
 		{
-			while (*s && !ft_isalnum(*s))
-				s++;
-			ft_put_var(*s, &args);
+			i++;
+			while (s[i] != '\0' && !ft_isalnum(s[i]) && s[i] != '%')
+				i++;
+			count += ft_put_var(s[i], &args);
 		}
-		s++;
+		else
+			count += ft_putchar(s[i]);
+		i++;
 	}
 	va_end(args);
-	return (0);
+	return (count);
 }

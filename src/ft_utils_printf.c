@@ -6,31 +6,27 @@
 /*   By: ltheveni <ltheveni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 22:04:14 by ltheveni          #+#    #+#             */
-/*   Updated: 2024/11/12 22:04:45 by ltheveni         ###   ########.fr       */
+/*   Updated: 2024/11/13 15:07:41 by ltheveni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-int	ft_len_arr(char **s)
+int	ft_putchar(char const c)
 {
-	int	i;
-
-	i = 0;
-	while (s[i])
-		i++;
-	return (i);
+	write(1, &c, 1);
+	return (1);
 }
 
-void	free_split(char **arr)
+int	ft_putstr(char const *s)
 {
 	int	i;
 
 	i = 0;
-	while (arr[i])
+	while (s[i] != '\0')
 	{
-		free(arr[i]);
+		write(1, &s[i], 1);
 		i++;
 	}
-	free(arr);
+	return (i);
 }
