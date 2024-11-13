@@ -30,7 +30,9 @@ int	main(void)
 	printf("%-%\n");
 	printf("\n\n");
 	printf("\n\n");
-	ft_printf("%d\t", 10);
-	printf("%d\n", 10);
+	ft_printf("%u\t", (unsigned int)10);
+	printf("%u\n", (unsigned int)10);
+	ft_printf("%u\t", (unsigned int)-1);
+	printf("%u\n", (unsigned int)-1);
 	return (0);
 }
