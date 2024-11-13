@@ -6,7 +6,7 @@
 /*   By: ltheveni <ltheveni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 22:04:14 by ltheveni          #+#    #+#             */
-/*   Updated: 2024/11/13 15:07:41 by ltheveni         ###   ########.fr       */
+/*   Updated: 2024/11/13 17:03:59 by ltheveni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,3 +30,17 @@ int	ft_putstr(char const *s)
 	}
 	return (i);
 }
+
+/* int	ft_putptr(void *p) */
+/* { */
+/* 	uintptr_t	addr; */
+/* 	int			i; */
+/**/
+/* 	addr = (uintptr_t)p; */
+/* 	write(1, "0x", 2); */
+/* 	while (i < 8) { */
+/**/
+/* 		i++; */
+/* 	} */
+/* 	return (1); */
+/* } */

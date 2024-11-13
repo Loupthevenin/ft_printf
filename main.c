@@ -11,8 +11,8 @@ int	main(void)
 	b = "world";
 	c = "world";
 	d = "world";
-	/* ft_printf("Hello\t"); */
-	/* printf("Hello\n"); */
+	ft_printf("Hello\t");
+	printf("Hello\n");
 	ft_printf("%sworld\t", a);
 	printf("%sworld\n", a);
 	ft_printf("%s %s\t", a, b);
@@ -24,7 +24,13 @@ int	main(void)
 	printf("\n\n");
 	ft_printf("aabab%%aaabb\t");
 	printf("aabab%%aaabb\n");
-	ft_printf("%-%a\t");
+	ft_printf("%%\t");
+	printf("%%\n");
+	ft_printf("%-%\t");
 	printf("%-%\n");
+	printf("\n\n");
+	printf("\n\n");
+	ft_printf("%d\t", 10);
+	printf("%d\n", 10);
 	return (0);
 }

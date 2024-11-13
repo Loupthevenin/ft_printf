@@ -6,7 +6,7 @@
 /*   By: ltheveni <ltheveni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 14:46:16 by ltheveni          #+#    #+#             */
-/*   Updated: 2024/11/13 15:15:11 by ltheveni         ###   ########.fr       */
+/*   Updated: 2024/11/13 17:09:30 by ltheveni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 
 int	ft_put_var(char c, va_list *args)
 {
-	int	i;
+	int		i;
+	char	*str;
 
 	i = 0;
 	if (c == 'c')
@@ -22,12 +23,12 @@ int	ft_put_var(char c, va_list *args)
 	if (c == 's')
 		i = ft_putstr(va_arg(*args, char *));
 	if (c == 'p')
+		i = ft_putstr((void *)va_arg(*args, void *));
+	if (c == 'd' || c == 'i')
 	{
-	}
-	if (c == 'd')
-		ft_putnbr_fd(va_arg(*args, int), 1);
-	if (c == 'i')
-	{
+		str = ft_itoa(va_arg(*args, int));
+		i = ft_putstr(str);
+		free(str);
 	}
 	if (c == 'u')
 	{
