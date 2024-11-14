@@ -6,12 +6,12 @@
 /*   By: ltheveni <ltheveni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 10:59:13 by ltheveni          #+#    #+#             */
-/*   Updated: 2024/11/14 11:15:47 by ltheveni         ###   ########.fr       */
+/*   Updated: 2024/11/14 11:50:15 by ltheveni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ft_printf_h
-# define ft_printf_h
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
 
 # include "libft.h"
 # include <stdarg.h>
