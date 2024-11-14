@@ -6,7 +6,7 @@
 #    By: ltheveni <ltheveni@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/12 18:30:50 by ltheveni          #+#    #+#              #
-#    Updated: 2024/11/12 22:06:08 by ltheveni         ###   ########.fr        #
+#    Updated: 2024/11/14 11:32:15 by ltheveni         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,6 +18,7 @@ SRC_FILES = ft_printf.c\
 
 LIBFT_DIR = libft
 LIBFT = $(LIBFT_DIR)/libft.a
+LIBFT_OBJ = $(LIBFT_DIR)/*.o
 INCLUDE = -I includes
 
 TEST_NAME = test_ft_printf
@@ -28,13 +29,13 @@ CFLAGS = -Wall -Wextra -Werror
 AR = ar rc
 RM = rm -rf
 
-SRCS = $(addprefix $(SRCS_DIR), $(addsuffix .c, $(SRC_FILES)))
+SRCS = $(shell find $(SRC_DIR) -name '*.c' | xargs basename -a)
 OBJS = $(addprefix $(OBJ_DIR), $(SRC_FILES:.c=.o))
 
 all: $(LIBFT) $(NAME)
 
 $(NAME): $(LIBFT) $(OBJS)
-	@$(AR) $(NAME) $(OBJS)
+	@$(AR) $(NAME) $(OBJS) $(LIBFT_OBJ)
 
 $(LIBFT):
 	@make -C $(LIBFT_DIR)
@@ -43,7 +44,7 @@ test: $(TEST_NAME)
 	./$(TEST_NAME)
 
 $(TEST_NAME): $(LIBFT) $(NAME)
-	$(CC) $(CFLAGS) $(INCLUDE) $(TEST_SRC) $(NAME) $(LIBFT) -o $(TEST_NAME)
+	$(CC) $(CFLAGS) $(INCLUDE) $(TEST_SRC) $(LIBFT) $(NAME) -o $(TEST_NAME)
 
 $(OBJ_DIR)%.o: $(SRCS_DIR)%.c
 	@if [ ! -d $(OBJ_DIR) ];then mkdir $(OBJ_DIR); fi
@@ -55,7 +56,7 @@ clean:
 
 fclean:
 	make fclean -C $(LIBFT_DIR)
-	$(RM) $(OBJ_DIR) $(NAME)
+	$(RM) $(OBJ_DIR) $(NAME) $(TEST_NAME)
 
 re: fclean all
 
