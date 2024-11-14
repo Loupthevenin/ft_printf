@@ -6,7 +6,7 @@
 /*   By: ltheveni <ltheveni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 22:04:14 by ltheveni          #+#    #+#             */
-/*   Updated: 2024/11/13 20:08:52 by ltheveni         ###   ########.fr       */
+/*   Updated: 2024/11/14 10:30:53 by ltheveni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,16 +42,31 @@ int	ft_putnbr_u(unsigned int n)
 	return (count);
 }
 
-/* int	ft_putptr(void *p) */
-/* { */
-/* 	uintptr_t	addr; */
-/* 	int			i; */
-/**/
-/* 	addr = (uintptr_t)p; */
-/* 	write(1, "0x", 2); */
-/* 	while (i < 8) { */
-/**/
-/* 		i++; */
-/* 	} */
-/* 	return (1); */
-/* } */
+int	ft_puthex(unsigned long n, int is_upper)
+{
+	char	*base;
+	char	c;
+	int		count;
+
+	if (is_upper)
+		base = "0123456789ABCDEF";
+	else
+		base = "0123456789abcdef";
+	count = 0;
+	if (n >= 16)
+		count += ft_puthex(n / 16, is_upper);
+	c = base[n % 16];
+	write(1, &c, 1);
+	count++;
+	return (count);
+}
+
+int	ft_putptr(void *p)
+{
+	int	count;
+
+	count = 2;
+	write(1, "0x", 2);
+	count += ft_puthex((unsigned long)p, 0);
+	return (count);
+}
