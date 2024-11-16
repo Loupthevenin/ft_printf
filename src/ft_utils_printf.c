@@ -6,7 +6,7 @@
 /*   By: ltheveni <ltheveni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 22:04:14 by ltheveni          #+#    #+#             */
-/*   Updated: 2024/11/14 11:57:00 by ltheveni         ###   ########.fr       */
+/*   Updated: 2024/11/16 09:03:49 by ltheveni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,11 @@ int	ft_putptr(void *p)
 {
 	int	count;
 
+	if (!p)
+	{
+		write(1, "(nil)", 5);
+		return (5);
+	}
 	count = 2;
 	write(1, "0x", 2);
 	count += ft_puthex((unsigned long)p, 0);

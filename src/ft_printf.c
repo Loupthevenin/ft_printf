@@ -6,7 +6,7 @@
 /*   By: ltheveni <ltheveni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 14:46:16 by ltheveni          #+#    #+#             */
-/*   Updated: 2024/11/14 14:14:32 by ltheveni         ###   ########.fr       */
+/*   Updated: 2024/11/14 15:07:07 by ltheveni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	ft_put_var(char c, va_list *args)
 		free(str);
 	}
 	if (c == 'u')
-		i = ft_putnbr_u((unsigned int)va_arg(*args, int));
+		i = ft_putnbr_u(va_arg(*args, unsigned int));
 	if (c == 'x')
 		i = ft_puthex((unsigned int)va_arg(*args, int), 0);
 	if (c == 'X')
